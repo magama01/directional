@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "if [ \"$VERCEL\" = \"1\" ]; then rm -f .env.local; fi && next build",
     "start": "next start",
     "lint": "eslint"
   },
