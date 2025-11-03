@@ -53,8 +53,6 @@ const authConfig = {
     session: {
         strategy: 'jwt',
     },
-
-
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
@@ -72,10 +70,10 @@ const authConfig = {
             return session;
         },
     },
-
     pages: {
         signIn: '/login',
     },
+    secret : process.env.AUTH_SECRET,
 } satisfies NextAuthConfig
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authConfig)
