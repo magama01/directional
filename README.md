@@ -46,4 +46,4 @@
 
 ## (선택사항) 배포 링크
 
-*   배포된 서비스가 있다면 여기에 링크를 추가하세요.
+https://directional.vercel.app/
