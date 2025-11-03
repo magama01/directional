@@ -22,9 +22,6 @@ export async function upsertPostAction(prevState: FormState, formData: FormData)
         tags: rawTags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0)
     };
 
-    for(const r of formData.entries()){
-        console.log(r);
-    }
     const validatedFields = PostSchema.safeParse(data);
 
     if (!validatedFields.success) {

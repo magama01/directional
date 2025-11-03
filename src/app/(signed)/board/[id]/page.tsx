@@ -73,7 +73,6 @@ export default function PostDetailPage({params}: { params: { id: string } }) {
         } catch (e) {
             const err = e as Error;
             alert(`삭제 실패: ${err.message}`);
-            console.error(e);
         } finally {
             setDeleting(false);
         }

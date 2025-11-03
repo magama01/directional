@@ -44,8 +44,7 @@ async function fetchPosts(params: BoardSearchParams): Promise<BoardResponse> {
 
     const query = new URLSearchParams(removeUndefined(queryObject));
 
-    console.group('query = >');
-    console.log(query.toString())
+
     try {
         const res = await serverFetch(`/posts?${query.toString()}`, {
             method: 'GET',
@@ -57,7 +56,7 @@ async function fetchPosts(params: BoardSearchParams): Promise<BoardResponse> {
         }
 
         const data =  await res.json();
-        console.log(data);
+
         return data;
 
 
@@ -69,7 +68,7 @@ async function fetchPosts(params: BoardSearchParams): Promise<BoardResponse> {
         };
     }
     finally {
-        console.groupEnd()
+
     }
 }
 
