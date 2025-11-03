@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Directional 프로젝트
 
-## Getting Started
+이 문서는 Directional 프로젝트에 대한 정보를 제공합니다.
 
-First, run the development server:
+## 프로젝트 실행 방법
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.  **저장소 복제**
+    ```bash
+    git clone https://github.com/magama01/directional.git
+    cd directional
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.  **의존성 설치**
+    ``
+    next@16 을 mui와 auth.js가 공식적으로 지원하질 않아 강제 설치가 필요합니다. 
+    ``
+    ```bash
+    npm install --legacy-peer-deps
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3.  **개발 서버 실행**
+    ```bash
+    npm run dev
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    브라우저에서 [http://localhost:3000](http://localhost:3000)으로 접속하여 확인할 수 있습니다.
+``이미 사용되는 포트번호라 다른 포트로 열린다면 .env에 수정이 필요합니다. ``
 
-## Learn More
+## 사용한 기술 스택
 
-To learn more about Next.js, take a look at the following resources:
+*   **Framework**: [Next.js](https://nextjs.org/)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **UI Library**: [Material-UI (MUI)](https://mui.com/)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Authentication**: [Auth.js](https://next-auth.js.org/)
+*   **Charting**: [ApexCharts](https://apexcharts.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## 주요 구현 기능 요약
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+*   **사용자 인증**: NextAuth.js를 사용한 로그인 / client-fetcher, server-fetcher 를 통한 api 호출시 인증 주입 / 최대한 server action 위주로 쓰려했습니다.
+*   **차트**: ApexCharts를 사용한 차트
+*   **UI**: Material-UI 및 Tailwind CSS를 이용한 디자인 구성
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## (선택사항) 배포 링크
+
+*   배포된 서비스가 있다면 여기에 링크를 추가하세요.
