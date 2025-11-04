@@ -5,11 +5,11 @@ const authConfig = {
     providers: [
         Credentials({
             credentials: {
-                email: { label: "Email", type: "email" },
-                password: { label: "Password", type: "password" },
+                email: {label: "Email", type: "email"},
+                password: {label: "Password", type: "password"},
             },
             async authorize(credentials) {
-                const { email, password } = credentials as { email: string, password: string };
+                const {email, password} = credentials as { email: string, password: string };
                 try {
                     const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/auth/login`, {
                         method: 'POST',
@@ -54,7 +54,7 @@ const authConfig = {
         strategy: 'jwt',
     },
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({token, user}) {
             if (user) {
                 token.user = user;
                 token.accessToken = user.accessToken;
@@ -62,7 +62,7 @@ const authConfig = {
             return token;
         },
 
-        async session({ session, token }) {
+        async session({session, token}) {
 
             session.user.id = token.user.id as string;
             session.user.email = token.user.email as string;
@@ -73,7 +73,8 @@ const authConfig = {
     pages: {
         signIn: '/login',
     },
-    secret : process.env.AUTH_SECRET,
+    secret: process.env.AUTH_SECRET,
+    trustHost: true,
 } satisfies NextAuthConfig
 
-export const { handlers, auth, signIn, signOut } = NextAuth(authConfig)
+export const {handlers, auth, signIn, signOut} = NextAuth(authConfig)
